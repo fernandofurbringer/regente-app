@@ -1,0 +1,11 @@
+{
+  "id": "agentico-padrao",
+  "name": "Agêntico padrão",
+  "description": "Missão agêntica com piloto Claude Opus (esforço alto) e estilo cadeia: scout, builder, reviewer.",
+  "mode": "agentico",
+  "pilot": {"cli": "claude", "model": "claude-opus-5-5", "effort": "high"},
+  "slots": [],
+  "intake": {},
+  "style": "chain",
+  "worktree": false
+}

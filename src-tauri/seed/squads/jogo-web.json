@@ -1,0 +1,44 @@
+{
+  "id": "jogo-web",
+  "name": "Jogo Web",
+  "description": "Um jogo web jogável com prova: mecânica no papel, build em paralelo e playtest por três lentes.",
+  "intake": [
+    {"q": "Jogo e tema?"},
+    {"q": "Joga como qual jogo consagrado? O squad nunca inventa um gênero do zero."},
+    {"q": "Estilo visual? Vira o Style Block."}
+  ],
+  "roster": [
+    {"agent": "sq-frontend", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-media", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-qa", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"}
+  ],
+  "phases": [
+    {
+      "name": "Mecânica",
+      "steps": [
+        "sq-frontend escreve a mecânica em 3 frases, um loop central de 10 s e o Style Block."
+      ],
+      "gate": "Aprovar o jogo no papel"
+    },
+    {
+      "name": "Build",
+      "steps": [
+        "sq-frontend: scaffold Vite/TS, RNG com semente, tempo de jogo em vez de relógio, juice (hitstop, screenshake).",
+        "sq-media, uma instância por asset, em paralelo."
+      ],
+      "gate": "Uma URL jogável"
+    },
+    {
+      "name": "Playtest",
+      "steps": [
+        "sq-qa: um bot joga e grava um vídeo de 15 s.",
+        "sq-qa: teste em mobile e toque.",
+        "sq-qa: inspeção de pixels (entropia, densidade de bordas, orçamento de render)."
+      ],
+      "gate": "Vídeo, métricas e 'é divertido?' (sem decisão do jogador em 30 s é falha)"
+    }
+  ],
+  "maestroNotes": "Se nenhuma decisão do jogador acontecer em 30 s, o jogo reprova: volte à mecânica.",
+  "media": {"providers": ["google-image", "openai-image"], "models": []},
+  "peakPanes": 7
+}

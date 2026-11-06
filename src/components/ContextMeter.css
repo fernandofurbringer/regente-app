@@ -1,0 +1,31 @@
+.ctx-meter {
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 4px;
+  border-radius: 2px;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  overflow: hidden;
+  flex: none;
+  align-self: center;
+}
+.ctx-meter-fill {
+  display: block;
+  height: 100%;
+  background: var(--ok, #3fb950);
+}
+.ctx-meter[data-faixa="medio"] .ctx-meter-fill { background: var(--warn, #d29922); }
+.ctx-meter[data-faixa="ruim"] .ctx-meter-fill { background: var(--danger, #f85149); }
+.ctx-meter-wrap { display: inline-flex; align-items: center; gap: 4px; }
+.ctx-chip {
+  font: inherit;
+  font-size: 11px;
+  padding: 0 6px;
+  border-radius: 3px;
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ctx-chip:disabled { opacity: 0.5; cursor: default; }

@@ -1,0 +1,17 @@
+{
+  "sha": "0000000000000000000000000000000000000000",
+  "url": "https://api.github.com/repos/fixture/skills/git/trees/main",
+  "truncated": false,
+  "tree": [
+    { "path": "README.md", "mode": "100644", "type": "blob", "sha": "1", "size": 10 },
+    { "path": "skills", "mode": "040000", "type": "tree", "sha": "2" },
+    { "path": "skills/pdf", "mode": "040000", "type": "tree", "sha": "3" },
+    { "path": "skills/pdf/SKILL.md", "mode": "100644", "type": "blob", "sha": "4", "size": 120 },
+    { "path": "skills/pdf/scripts", "mode": "040000", "type": "tree", "sha": "5" },
+    { "path": "skills/pdf/scripts/a.py", "mode": "100644", "type": "blob", "sha": "6", "size": 40 },
+    { "path": "skills/docx", "mode": "040000", "type": "tree", "sha": "7" },
+    { "path": "skills/docx/SKILL.md", "mode": "100644", "type": "blob", "sha": "8", "size": 90 },
+    { "path": "agents", "mode": "040000", "type": "tree", "sha": "9" },
+    { "path": "agents/reviewer.md", "mode": "100644", "type": "blob", "sha": "10", "size": 80 }
+  ]
+}

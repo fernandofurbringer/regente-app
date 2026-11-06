@@ -1,0 +1,77 @@
+[
+  {
+    "id": "economico",
+    "nome": "Econômico",
+    "modelos": {
+      "planejar": {"model": "claude-opus-5-5", "effort": "medium"},
+      "implementar": {"model": "claude-haiku-5-5", "effort": "low"},
+      "revisar": {"model": "claude-sonnet-5-5", "effort": "medium"},
+      "testar": {"model": "claude-haiku-5-5", "effort": "low"},
+      "explorar": {"model": "claude-haiku-5-5", "effort": "low"}
+    },
+    "papeis": {"piloto": {"model": "claude-opus-5-5", "effort": "medium"}, "scout": {"model": "claude-haiku-5-5", "effort": "low"}, "builder": {"model": "claude-sonnet-5-5", "effort": "low"}, "reviewer": {"model": "claude-sonnet-5-5", "effort": "medium"}, "controller": {"model": "claude-haiku-5-5", "effort": "low"}, "cruzado": null},
+    "escada": ["claude-haiku-5-5:low", "claude-sonnet-5-5:low", "claude-sonnet-5-5:medium", "claude-opus-5-5:high"],
+    "escalarAoFalhar": true,
+    "contexto": {"janelaLongos": 400000, "paybackK": 2, "restanteMin": 5, "recomecar": "auto", "nativaOciosa": false},
+    "cacheTtlLongos": "1h",
+    "mcp": {"ajudantes": "minimal", "filtrarPorPapel": true},
+    "saidas": {"bashMax": 15000, "leituraMax": 10000, "resumirAcima": 6000, "digestFalhas": false},
+    "testes": {"relacionadosPrimeiro": true, "completoNoFim": true},
+    "disciplinaExecutor": true,
+    "artefatos": {"modo": "referencia", "formato": "auto"},
+    "indiceCodigo": true,
+    "subagenteModelo": "haiku",
+    "estiloConciso": true,
+    "paraleloMax": 2
+  },
+  {
+    "id": "equilibrado",
+    "nome": "Equilibrado",
+    "modelos": {
+      "planejar": {"model": "claude-opus-5-5", "effort": "high"},
+      "implementar": {"model": "claude-haiku-5-5", "effort": "low"},
+      "revisar": {"model": "claude-sonnet-5-5", "effort": "high"},
+      "testar": {"model": "claude-sonnet-5-5", "effort": "low"},
+      "explorar": {"model": "claude-sonnet-5-5", "effort": "low"}
+    },
+    "papeis": {"piloto": {"model": "claude-opus-5-5", "effort": "high"}, "scout": {"model": "claude-sonnet-5-5", "effort": "low"}, "builder": {"model": "claude-sonnet-5-5", "effort": "medium"}, "reviewer": {"model": "claude-sonnet-5-5", "effort": "high"}, "controller": {"model": "claude-sonnet-5-5", "effort": "low"}, "cruzado": null},
+    "escada": ["claude-haiku-5-5:low", "claude-sonnet-5-5:low", "claude-sonnet-5-5:medium", "claude-opus-5-5:high"],
+    "escalarAoFalhar": true,
+    "contexto": {"janelaLongos": 400000, "paybackK": 3, "restanteMin": 5, "recomecar": "auto", "nativaOciosa": false},
+    "cacheTtlLongos": "1h",
+    "mcp": {"ajudantes": "minimal", "filtrarPorPapel": true},
+    "saidas": {"bashMax": 20000, "leituraMax": 15000, "resumirAcima": 12000, "digestFalhas": false},
+    "testes": {"relacionadosPrimeiro": true, "completoNoFim": true},
+    "disciplinaExecutor": true,
+    "artefatos": {"modo": "referencia", "formato": "auto"},
+    "indiceCodigo": false,
+    "subagenteModelo": null,
+    "estiloConciso": false,
+    "paraleloMax": 3
+  },
+  {
+    "id": "precisao",
+    "nome": "Máxima precisão",
+    "modelos": {
+      "planejar": {"model": "claude-opus-5-5", "effort": "high"},
+      "implementar": {"model": "claude-sonnet-5-5", "effort": "medium"},
+      "revisar": {"model": "claude-opus-5-5", "effort": "high"},
+      "testar": {"model": "claude-sonnet-5-5", "effort": "medium"},
+      "explorar": {"model": "claude-sonnet-5-5", "effort": "medium"}
+    },
+    "papeis": {"piloto": {"model": "claude-opus-5-5", "effort": "high"}, "scout": {"model": "claude-sonnet-5-5", "effort": "medium"}, "builder": {"model": "claude-opus-5-5", "effort": "medium"}, "reviewer": {"model": "claude-opus-5-5", "effort": "high"}, "controller": {"model": "claude-sonnet-5-5", "effort": "medium"}, "cruzado": null},
+    "escada": ["claude-haiku-5-5:low", "claude-sonnet-5-5:low", "claude-sonnet-5-5:medium", "claude-opus-5-5:high"],
+    "escalarAoFalhar": true,
+    "contexto": {"janelaLongos": 800000, "paybackK": 2, "restanteMin": 5, "recomecar": "propor", "nativaOciosa": false},
+    "cacheTtlLongos": "1h",
+    "mcp": {"ajudantes": "minimal", "filtrarPorPapel": true},
+    "saidas": {"bashMax": null, "leituraMax": null, "resumirAcima": 20000, "digestFalhas": true},
+    "testes": {"relacionadosPrimeiro": true, "completoNoFim": true},
+    "disciplinaExecutor": true,
+    "artefatos": {"modo": "referencia", "formato": "json"},
+    "indiceCodigo": false,
+    "subagenteModelo": null,
+    "estiloConciso": false,
+    "paraleloMax": 3
+  }
+]

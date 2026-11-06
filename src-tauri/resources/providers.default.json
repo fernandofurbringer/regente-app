@@ -1,0 +1,62 @@
+{
+  "clis": [
+    {
+      "id": "claude", "label": "Claude Code", "command": "claude", "npmPackage": "@anthropic-ai/claude-code", "updateCmd": "claude update", "noUpdateEnv": [["DISABLE_AUTOUPDATER", "1"]],
+      "perfilEnv": {"janelaLongos": "CLAUDE_CODE_AUTO_COMPACT_WINDOW", "bashMax": "BASH_MAX_OUTPUT_LENGTH", "leituraMax": "CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS", "subagenteModelo": "CLAUDE_CODE_SUBAGENT_MODEL", "cacheTtlLongos": "CLAUDE_CODE_PROMPT_CACHE_TTL", "sugestoes": "CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION", "desligarTitulo": "CLAUDE_CODE_DISABLE_TERMINAL_TITLE"},
+      "install": "irm https://claude.ai/install.ps1 | iex",
+      "models": ["claude-opus-5-5", "claude-sonnet-5-5", "claude-haiku-5-5", "claude-fable-5-1"],
+      "efforts": ["low", "medium", "high", "xhigh", "max"],
+      "permission": { "danger": ["--dangerously-skip-permissions"], "auto": ["--permission-mode", "acceptEdits"], "pend": [], "plan": ["--permission-mode", "plan"] },
+      "modelArgs": ["--model", "{model}"], "effortArgs": ["--effort", "{effort}"],
+      "sessionNew": ["--session-id", "{session}"], "sessionResume": ["--resume", "{session}"], "resumeFirst": false,
+      "accountEnv": "CLAUDE_CONFIG_DIR", "cost": "claude", "statusline": true, "routable": true,
+      "promptArgs": ["{prompt}"], "systemArgs": ["--append-system-prompt", "{system}"], "disallowArgs": ["--disallowedTools", "{tools}"], "mcp": "claude", "pluginArgs": ["--plugin-dir", "{dir}"]
+    },
+    {
+      "id": "codex", "label": "Codex", "command": "codex", "install": "npm i -g @openai/codex", "npmPackage": "@openai/codex",
+      "models": ["gpt-5.5-codex", "gpt-5.5"], "efforts": ["low", "medium", "high", "xhigh"],
+      "permission": { "danger": ["--dangerously-bypass-approvals-and-sandbox"], "auto": ["--full-auto"], "pend": [], "plan": ["-s", "read-only"] },
+      "modelArgs": ["-m", "{model}"], "effortArgs": ["-c", "model_reasoning_effort={effort}"],
+      "sessionNew": [], "sessionResume": ["resume", "{session}"], "resumeFirst": true,
+      "accountEnv": "CODEX_HOME", "cost": "codex", "statusline": false, "routable": false,
+      "promptArgs": ["{prompt}"], "systemArgs": [], "disallowArgs": [], "mcp": "codex",
+      "perfilArgs": {"bashMax": ["-c", "tool_output_token_limit={n}"], "docMax": ["-c", "project_doc_max_bytes={n}"]}
+    },
+    {
+      "id": "gemini", "label": "Gemini CLI", "command": "gemini", "install": "npm i -g @google/gemini-cli", "npmPackage": "@google/gemini-cli",
+      "models": ["gemini-3-pro", "gemini-3-flash"], "efforts": [],
+      "permission": { "danger": ["--yolo"], "auto": ["--approval-mode", "auto_edit"], "pend": [], "plan": ["--approval-mode", "plan"] },
+      "modelArgs": ["-m", "{model}"], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false,
+      "accountEnv": null, "cost": "gemini", "statusline": false, "routable": false,
+      "promptArgs": ["-i", "{prompt}"], "systemArgs": [], "disallowArgs": [], "mcp": "gemini"
+    },
+    {
+      "id": "opencode", "label": "OpenCode", "command": "opencode", "install": "npm i -g opencode-ai", "npmPackage": "opencode-ai",
+      "models": [], "efforts": [], "permission": { "danger": [], "auto": [], "pend": [], "plan": [] },
+      "modelArgs": ["-m", "{model}"], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false,
+      "accountEnv": null, "cost": "opencode", "statusline": false, "routable": false
+    },
+    { "id": "antigravity", "label": "Antigravity", "command": "antigravity", "install": null, "models": [], "efforts": [], "permission": { "danger": [], "auto": [], "pend": [], "plan": [] }, "modelArgs": [], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false, "accountEnv": null, "cost": null, "statusline": false, "routable": false },
+    { "id": "copilot", "label": "Copilot CLI", "command": "copilot", "install": "npm i -g @github/copilot", "npmPackage": "@github/copilot", "models": [], "efforts": [], "permission": { "danger": ["--allow-all-tools"], "auto": [], "pend": [], "plan": [] }, "modelArgs": ["--model", "{model}"], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false, "accountEnv": null, "cost": null, "statusline": false, "routable": false },
+    { "id": "cursor", "label": "Cursor Agent", "command": "cursor-agent", "install": "irm 'https://cursor.com/install?win32=true' | iex", "models": [], "efforts": [], "permission": { "danger": ["--force"], "auto": [], "pend": [], "plan": [] }, "modelArgs": ["-m", "{model}"], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false, "accountEnv": null, "cost": null, "statusline": false, "routable": false },
+    { "id": "grok", "label": "Grok CLI", "command": "grok", "install": null, "models": [], "efforts": [], "permission": { "danger": [], "auto": [], "pend": [], "plan": [] }, "modelArgs": ["-m", "{model}"], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false, "accountEnv": null, "cost": null, "statusline": false, "routable": false },
+    { "id": "kimi", "label": "Kimi CLI", "command": "kimi", "install": null, "models": [], "efforts": [], "permission": { "danger": [], "auto": [], "pend": [], "plan": [] }, "modelArgs": [], "effortArgs": [], "sessionNew": [], "sessionResume": [], "resumeFirst": false, "accountEnv": null, "cost": null, "statusline": false, "routable": false }
+  ],
+  "routes": [
+    { "id": "openrouter", "label": "OpenRouter", "baseUrl": "https://openrouter.ai/api", "secret": "route.openrouter", "models": ["anthropic/claude-sonnet-5.5", "deepseek/deepseek-chat", "moonshotai/kimi-k3"] },
+    { "id": "deepseek", "label": "DeepSeek", "baseUrl": "https://api.deepseek.com/anthropic", "secret": "route.deepseek", "models": ["deepseek-chat", "deepseek-reasoner"] },
+    { "id": "glm", "label": "GLM (Z.ai)", "baseUrl": "https://api.z.ai/api/anthropic", "secret": "route.glm", "models": ["glm-5"] },
+    { "id": "kimi", "label": "Kimi (Moonshot)", "baseUrl": "https://api.moonshot.ai/anthropic", "secret": "route.kimi", "models": ["kimi-k3"] },
+    { "id": "fireworks", "label": "Fireworks", "baseUrl": "https://api.fireworks.ai/inference", "secret": "route.fireworks", "models": ["accounts/fireworks/models/deepseek-v3p1"] },
+    { "id": "mimo", "label": "MiMo (Xiaomi) (pay-as-you-go; no Token Plan use o host token-plan-cn.xiaomimimo.com)", "baseUrl": "https://api.xiaomimimo.com/anthropic", "secret": "route.mimo", "models": [] },
+    { "id": "llamacpp", "label": "llama.cpp (local)", "baseUrl": "http://localhost:8080", "secret": null, "models": [] },
+    { "id": "ollama", "label": "Ollama (local)", "baseUrl": "http://localhost:11434", "secret": null, "models": [] },
+    { "id": "lmstudio", "label": "LM Studio (local)", "baseUrl": "http://localhost:1234", "secret": null, "models": [] }
+  ],
+  "shells": [
+    { "id": "powershell", "label": "PowerShell", "command": "powershell.exe", "args": ["-NoLogo"] },
+    { "id": "pwsh", "label": "PowerShell 7", "command": "pwsh.exe", "args": ["-NoLogo"] },
+    { "id": "cmd", "label": "Prompt de Comando", "command": "cmd.exe", "args": [] },
+    { "id": "gitbash", "label": "Git Bash", "command": "C:\\Program Files\\Git\\bin\\bash.exe", "args": ["--login", "-i"] }
+  ]
+}

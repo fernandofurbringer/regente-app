@@ -1,0 +1,111 @@
+[package]
+name = "regente"
+version = "1.4.0"
+description = "Regente: cockpit de agentes de IA"
+authors = ["Regente"]
+edition = "2024"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "regente_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset", "tray-icon", "image-png"] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-notification = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-updater = "2.14"
+tauri-plugin-process = "2.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+portable-pty = "0.9"
+rusqlite = { version = "0.40", features = ["bundled"] }
+keyring = "4"
+aes-gcm = "0.11"
+getrandom = "0.4"
+uuid = { version = "1", features = ["v4"] }
+sysinfo = "0.39"
+reqwest = { version = "0.13", default-features = false, features = ["native-tls", "json", "multipart"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-appender = "0.2"
+regex = "1"
+unicode-normalization = "0.1"
+fastrand = "2"
+trash = "5"
+glob = "0.3"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+rmcp = { version = "3.5", features = ["server", "macros", "transport-streamable-http-server"] }
+axum = { version = "0.8", features = ["ws"] }
+hyper-util = { version = "0.1", features = ["tokio"] }
+axum-server = { version = "0.8", default-features = false, features = ["tls-rustls-no-provider"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+rcgen = "0.14"
+qrcode = "0.14"
+sha2 = "0.10"
+# Busca semântica local (M1c, RM-38): fastembed carrega o e5-small com ONNX Runtime; a DLL vem de `<data>/models/` (load-dynamic)
+fastembed = { version = "=7.1.1", default-features = false, features = ["ort-load-dynamic"] }
+ort = { version = "=2.0.0-rc.13", default-features = false, features = ["load-dynamic"] }
+# só para extrair onnxruntime.dll do zip oficial (já presente no lock pelo tauri)
+zip = { version = "=4.6.1", default-features = false, features = ["deflate-flate2"] }
+http = "1"
+schemars = "1"
+jsonschema = { version = "0.33", default-features = false }
+tokio = { version = "1", features = ["rt-multi-thread", "net", "sync", "time", "macros"] }
+include_dir = "0.7"
+cron = "0.17"
+xcap = "0.9"
+enigo = "0.6"
+base64 = "0.22"
+arboard = "3"
+image = { version = "0.25", default-features = false, features = ["png"] }
+# Índice de código (RM-24, H1-05): tree-sitter e busca no estilo ripgrep, só com a feature `codeindex`
+tree-sitter = { version = "0.27", optional = true }
+tree-sitter-rust = { version = "0.24", optional = true }
+tree-sitter-typescript = { version = "0.23", optional = true }
+tree-sitter-javascript = { version = "0.25", optional = true }
+tree-sitter-python = { version = "0.25", optional = true }
+tree-sitter-go = { version = "0.25", optional = true }
+ignore = { version = "0.4", optional = true }
+grep-regex = { version = "0.1", optional = true }
+grep-searcher = { version = "0.1", optional = true }
+notify = "8.2.1"
+
+[features]
+default = ["codeindex"]
+codeindex = ["dep:tree-sitter", "dep:tree-sitter-rust", "dep:tree-sitter-typescript", "dep:tree-sitter-javascript", "dep:tree-sitter-python", "dep:tree-sitter-go", "dep:ignore", "dep:grep-regex", "dep:grep-searcher"]
+
+[target.'cfg(windows)'.dependencies]
+# mesma versão que o wry usa: liga nas configurações do WebView2 (atalhos do navegador)
+webview2-com = "0.39"
+windows-core = "0.62"
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Security", "Win32_Storage_FileSystem", "Win32_System_JobObjects", "Win32_System_LibraryLoader", "Win32_System_Threading", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_WindowsAndMessaging"] }
+
+[dev-dependencies]
+tempfile = "3"
+# WebSocket tests against the server on 127.0.0.1 (0.29 = the version axum already uses; 0.30 would duplicate it)
+tokio-tungstenite = "0.29"
+futures-util = "0.3"
+
+[profile.dev]
+debug = "line-tables-only"
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "unwind"
+strip = true

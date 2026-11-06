@@ -1,0 +1,12 @@
+{
+  "name": "Regente",
+  "short_name": "Regente",
+  "description": "Controle seus painéis de IA do celular",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111418",
+  "theme_color": "#111418",
+  "icons": [{ "src": "/mobile-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

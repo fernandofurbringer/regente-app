@@ -1,0 +1,13 @@
+{
+  "id": "livre-3-claude",
+  "name": "Livre: 3 Claude",
+  "description": "Modo livre com três painéis Claude (Sonnet, esforço alto), permissão automática.",
+  "mode": "livre",
+  "slots": [
+    {"kind": "agent", "cli": "claude", "model": "claude-sonnet-5-5", "effort": "high", "permission": "auto"},
+    {"kind": "agent", "cli": "claude", "model": "claude-sonnet-5-5", "effort": "high", "permission": "auto"},
+    {"kind": "agent", "cli": "claude", "model": "claude-sonnet-5-5", "effort": "high", "permission": "auto"}
+  ],
+  "intake": {},
+  "worktree": false
+}

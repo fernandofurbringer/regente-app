@@ -1,0 +1,9 @@
+{
+  "id": "receita-automacao",
+  "name": "Automação Agendada",
+  "description": "Formação da squad Automação Agendada: uma automação agendada e monitorada.",
+  "mode": "squad",
+  "squad": "automacao",
+  "intake": {},
+  "worktree": false
+}

@@ -1,0 +1,12 @@
+/* Chip de verificação da barra da missão e o diálogo "Verificação…". */
+.verify-chip { cursor: pointer; white-space: nowrap; }
+.verify-chip:disabled { cursor: default; }
+.verify-chip.verify-ok { color: var(--ok, #3fb950); }
+.verify-chip.verify-erro { color: var(--erro, #f85149); }
+
+.verify-form { display: flex; flex-direction: column; gap: 10px; min-width: min(460px, 90vw); }
+.verify-label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.verify-input { font-family: var(--mono, monospace); padding: 6px 8px; }
+.verify-check { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.verify-hint, .verify-msg { font-size: 12px; margin: 0; opacity: 0.85; }
+.verify-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }

@@ -1,0 +1,56 @@
+{
+  "id": "site-completo",
+  "name": "Site Completo",
+  "description": "Um site publicado e completo: referência visual, copy, build, mídia e QA.",
+  "intake": [
+    {"q": "Para quem é o site?"},
+    {"q": "O que ele vende e qual é a ação principal? Vira o CTA do hero."},
+    {"q": "Quais seções são necessárias?"},
+    {"q": "URL do conteúdo?", "autofill": "first_url"},
+    {"q": "Referência visual?", "autofill": "inspired_by"},
+    {"q": "Já existe um domínio, ou é só uma prévia?"}
+  ],
+  "roster": [
+    {"agent": "sq-design-scout", "role": "scout", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-copywriter", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-browser", "role": "scout", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "packager", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-frontend", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-media", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-qa", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"}
+  ],
+  "phases": [
+    {
+      "name": "Visual e copy",
+      "steps": [
+        "sq-design-scout abre um navegador na referência e gera DESIGN.md (tokens em 4 camadas e manifesto de componentes).",
+        "sq-copywriter, em paralelo, escreve ângulo da oferta, headline, copy por seção e CTA. Preço nunca é inventado: marcar [A CONFIRMAR].",
+        "sq-browser mapeia a fonte do conteúdo por um snapshot de texto.",
+        "packager renderiza o Styleboard (paleta, tipografia e headline real)."
+      ],
+      "gate": "Aprovar styleboard"
+    },
+    {
+      "name": "Build",
+      "steps": [
+        "sq-frontend consome DESIGN.md e copy.md sem alterar o texto e escolhe 1 de 15 layouts estruturais, com lista negra de clichês de IA.",
+        "sq-media, uma instância por slot de imagem, em paralelo: cada uma segue o Style Block, gera, inspeciona o PNG e salva em assets/.",
+        "packager publica o preview."
+      ],
+      "gate": null
+    },
+    {
+      "name": "Revisão",
+      "steps": [
+        "sq-qa funcional: curl e console; depois snapshot de texto.",
+        "sq-qa vitals: Lighthouse headless.",
+        "sq-qa visual: só depois da camada 1, uma captura desktop e uma mobile.",
+        "sq-qa só reporta, nunca corrige."
+      ],
+      "gate": "Aprovar site final (URL e manual de 5 linhas)"
+    }
+  ],
+  "maestroNotes": "Não abra a fase de build antes do styleboard aprovado. Os agentes de build recebem DESIGN.md e copy.md como arquivos, não como texto colado.",
+  "media": {"providers": ["google-image", "openai-image"], "models": []},
+  "peakPanes": 9
+}

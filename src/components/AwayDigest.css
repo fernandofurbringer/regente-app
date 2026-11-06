@@ -1,0 +1,4 @@
+.away { display: flex; flex-direction: column; gap: 12px; }
+.away-section h3 { margin: 0 0 4px; font-size: 14px; }
+.away-section ul { margin: 0; padding-left: 18px; font-size: 13px; display: flex; flex-direction: column; gap: 2px; }
+.away-ia { white-space: pre-wrap; font: inherit; font-size: 13px; padding: 8px; border-radius: 6px; background: var(--surface, rgba(127, 127, 127, 0.12)); margin: 0; }

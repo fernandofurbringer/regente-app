@@ -1,0 +1,17 @@
+PASS src/lib/format.test.ts
+FAIL src/lib/errors.test.ts
+  ● errors › detecta ts
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+
+      12 |   expect(out).toHaveLength(1);
+         |               ^
+
+      at Object.<anonymous> (src/lib/errors.test.ts:12:15)
+
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 19 passed, 20 total
+Time:        1.1 s

@@ -1,0 +1,9 @@
+{
+  "id": "receita-saas-publicado",
+  "name": "SaaS Publicado",
+  "description": "Formação da squad SaaS Publicado: um SaaS publicado, com cobrança e revisão de segurança.",
+  "mode": "squad",
+  "squad": "saas-publicado",
+  "intake": {},
+  "worktree": false
+}

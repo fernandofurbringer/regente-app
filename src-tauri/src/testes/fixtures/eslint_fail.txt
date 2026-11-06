@@ -1,0 +1,5 @@
+/repo/src/lib/errors.ts
+  12:5  error    'x' is defined but never used  @typescript-eslint/no-unused-vars
+  20:1  warning  Unexpected console statement    no-console
+
+✖ 2 problems (1 error, 1 warning)

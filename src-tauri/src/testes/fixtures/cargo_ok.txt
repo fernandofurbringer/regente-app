@@ -1,0 +1,10 @@
+   Compiling regente v0.1.0 (D:\pessoal\REA\regente-wt-c\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.12s
+     Running unittests src/lib.rs (target\debug\deps\regente-3f2a.exe)
+
+running 3 tests
+test formato::tests::ok_caso ... ok
+test formato::tests::tabela ... ok
+test execmatch::tests::npm_dev ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

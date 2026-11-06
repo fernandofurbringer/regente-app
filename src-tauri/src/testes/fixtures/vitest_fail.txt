@@ -1,0 +1,14 @@
+ RUN  v5.0.4 D:/pessoal/REA/regente
+
+ ✓ src/lib/format.test.ts (12 tests) 34ms
+ ❯ src/lib/errors.test.ts (8 tests | 1 failed) 9ms
+   ✓ detecta rust
+   × detecta ts 4ms
+
+ FAIL  src/lib/errors.test.ts > errors > detecta ts
+AssertionError: expected [] to have a length of 1 but got +0
+ ❯ src/lib/errors.test.ts:14:23
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 19 passed (20)
+   Duration  1.31s

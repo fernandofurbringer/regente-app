@@ -1,0 +1,9 @@
+ RUN  v5.0.4 D:/pessoal/REA/regente
+
+ ✓ src/lib/format.test.ts (12 tests) 34ms
+ ✓ src/lib/errors.test.ts (8 tests) 5ms
+
+ Test Files  2 passed (2)
+      Tests  20 passed (20)
+   Start at  10:00:00
+   Duration  1.20s

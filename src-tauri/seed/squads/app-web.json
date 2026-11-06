@@ -1,0 +1,50 @@
+{
+  "id": "app-web",
+  "name": "App Web",
+  "description": "Um app web funcional com dados de exemplo: plano, build em paralelo e revisão por fluxo.",
+  "intake": [
+    {"q": "Qual app, e para quem?"},
+    {"q": "Qual é o fluxo principal?"},
+    {"q": "Referência visual?", "autofill": "inspired_by"},
+    {"q": "Funciona como qual app conhecido?"},
+    {"q": "Quais dados ele guarda, e precisa de login?"}
+  ],
+  "roster": [
+    {"agent": "sq-design-scout", "role": "scout", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-browser", "role": "scout", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "backend-architect", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-frontend", "role": "executor", "cli": "claude", "model": "claude-opus-5-5"},
+    {"agent": "sq-qa", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "integrador", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"}
+  ],
+  "phases": [
+    {
+      "name": "Plano",
+      "steps": [
+        "O maestro escreve o contrato de dados (entidades, campos, enums) e o trava antes de qualquer código.",
+        "sq-design-scout gera tokens e o styleboard.",
+        "sq-browser produz feature-map.md (fluxos e estados de tela)."
+      ],
+      "gate": "Aprovar plano e contrato de dados"
+    },
+    {
+      "name": "Build",
+      "steps": [
+        "backend-architect: schema, migrações, RLS (UPDATE com USING e WITH CHECK, checagem de dono, nunca user_metadata em política), auth, storage e dados de exemplo realistas.",
+        "sq-frontend, uma instância por tela, todas ao mesmo tempo, contra mocks (telas densas usam opus; telas CRUD, sonnet).",
+        "sq-qa escreve os testes antecipadamente enquanto o build roda.",
+        "integrador é a barreira única: liga o front ao back, troca os mocks e roda o seed."
+      ],
+      "gate": "Aprovar URL com dados de exemplo"
+    },
+    {
+      "name": "Revisão",
+      "steps": [
+        "sq-qa, um verificador por fluxo. Cada defeito vira F-XXX com evidência."
+      ],
+      "gate": "Aprovar checklist de fluxos (regra: encantar ou refazer)"
+    }
+  ],
+  "maestroNotes": "O contrato de dados é a fonte da verdade: qualquer agente que divergir dele para o trabalho e avisa o maestro.",
+  "peakPanes": 8
+}

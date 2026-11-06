@@ -1,0 +1,14 @@
+   Compiling regente v0.1.0 (D:\pessoal\REA\regente-wt-c\src-tauri)
+<ESC>[1m<ESC>[31merror[E0308]<ESC>[0m: mismatched types
+ <ESC>[1m<ESC>[34m-->  <ESC>[0msrc/formato.rs:12:9
+   |
+12 |         x
+   |         ^ expected `String`, found `i32`
+
+<ESC>[1m<ESC>[31merror[E0425]<ESC>[0m: cannot find value `foo` in this scope
+  --> src/execmatch.rs:7:5
+   |
+7  |     foo
+   |     ^^^ not found in this scope
+
+error: could not compile `regente` (lib test) due to 2 previous errors

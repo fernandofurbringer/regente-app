@@ -1,0 +1,12 @@
+  Determining projects to restore...
+  Regente.Tests failed with 1 error(s) (0.4s)
+/src/Tests/CalcTests.cs(14,9): error CS1002: ; expected
+  Failed Regente.Tests.CalcTests.Soma [12 ms]
+  Error Message:
+   Assert.Equal() Failure: Valores diferentes
+Expected: 4
+Actual:   3
+  Stack Trace:
+     at Regente.Tests.CalcTests.Soma() in /src/Tests/CalcTests.cs:line 20
+
+Failed!  - Failed:     1, Passed:     2, Skipped:     0, Total:     3, Duration: 1 s - Regente.Tests.dll (net8.0)

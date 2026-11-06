@@ -1,0 +1,14 @@
+/* faixa de atividade no rodapé do painel do Claude e a gaveta que abre sobre o terminal (até 45 % da altura) */
+.pane-activity { position: absolute; left: 4px; right: 4px; bottom: 4px; z-index: 4; display: flex; align-items: center; gap: 6px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg3); color: var(--fg2); font: 12px var(--mono); text-align: left; cursor: pointer; white-space: nowrap; overflow: hidden; }
+.pane-activity:hover { background: var(--bg4); color: var(--fg); }
+.pane-activity-text { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.pane-activity-chev { margin-left: auto; }
+.pane-activity-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--fg3); flex: none; }
+.pane-activity-dot[data-ativo] { background: var(--info); animation: pulse 1s infinite; }
+.pane-activity-drawer { position: absolute; left: 4px; right: 4px; bottom: 30px; z-index: 4; max-height: 45%; overflow: auto; padding: 8px; background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px #0006; }
+.pane-activity-drawer h4 { margin: 4px 0; font-size: 11px; color: var(--fg3); text-transform: uppercase; letter-spacing: .06em; }
+.pane-activity-execs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.pane-activity-sub summary { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+/* com a faixa, o terminal sobe para não ficar por baixo dela (o ResizeObserver do xterm refaz o fit) */
+.pane-body:has(> .pane-activity) .term { bottom: 30px; }
+@media (prefers-reduced-motion: reduce) { .pane-activity-dot[data-ativo] { animation: none; } }

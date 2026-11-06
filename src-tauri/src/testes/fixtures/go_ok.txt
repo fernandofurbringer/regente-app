@@ -1,0 +1,2 @@
+ok  	regente/pkg/a	0.123s
+ok  	regente/pkg/b	(cached)

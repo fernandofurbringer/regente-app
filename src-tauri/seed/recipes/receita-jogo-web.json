@@ -1,0 +1,9 @@
+{
+  "id": "receita-jogo-web",
+  "name": "Jogo Web",
+  "description": "Formação da squad Jogo Web: um jogo web jogável com prova.",
+  "mode": "squad",
+  "squad": "jogo-web",
+  "intake": {},
+  "worktree": false
+}

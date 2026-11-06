@@ -1,0 +1,5 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Regente.Tests succeeded (3.2s) → bin/Debug/net8.0/Regente.Tests.dll
+
+Passed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration: 1 s - Regente.Tests.dll (net8.0)

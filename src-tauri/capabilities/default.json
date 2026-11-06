@@ -1,0 +1,22 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Janelas do Regente",
+  "windows": ["main", "pane-*", "ws-*", "shot-*", "redline"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-is-fullscreen",
+    "core:window:allow-close",
+    "core:window:allow-destroy",
+    "core:window:allow-set-focus",
+    "core:webview:allow-create-webview-window",
+    "opener:default",
+    {
+      "identifier": "opener:allow-open-path",
+      "allow": [{ "path": "**" }],
+      "deny": [{ "path": "**/*.[jJ][sS]" }, { "path": "**/*.[pP][yY]" }, { "path": "**/*.[sS][hH]" }, { "path": "**/*.[pP][sS]1" }, { "path": "**/*.[eE][xX][eE]" }, { "path": "**/*.[bB][aA][tT]" }, { "path": "**/*.[cC][mM][dD]" }, { "path": "**/*.[vV][bB][sS]" }, { "path": "**/*.[vV][bB][eE]" }, { "path": "**/*.[jJ][sS][eE]" }, { "path": "**/*.[wW][sS][fF]" }, { "path": "**/*.[wW][sS][hH]" }, { "path": "**/*.[hH][tT][aA]" }, { "path": "**/*.[lL][nN][kK]" }, { "path": "**/*.[mM][sS][iI]" }, { "path": "**/*.[sS][cC][rR]" }, { "path": "**/*.[cC][oO][mM]" }, { "path": "**/*.[jJ][aA][rR]" }, { "path": "**/*.[rR][eE][gG]" }, { "path": "**/*.[cC][pP][lL]" }, { "path": "**/*.[uU][rR][lL]" }, { "path": "**/*.[wW][eE][bB][sS][iI][tT][eE]" }, { "path": "**/*.[aA][pP][pP][rR][eE][fF]-[mM][sS]" }, { "path": "**/*.[aA][pP][pP][lL][iI][cC][aA][tT][iI][oO][nN]" }, { "path": "**/*.[mM][sS][cC]" }, { "path": "**/*.[mM][sS][pP]" }, { "path": "**/*.[pP][iI][fF]" }, { "path": "**/*.[sS][cC][fF]" }, { "path": "**/*.[iI][nN][fF]" }, { "path": "**/*.[cC][hH][mM]" }, { "path": "**/*.[sS][eE][tT][tT][iI][nN][gG][cC][oO][nN][tT][eE][nN][tT]-[mM][sS]" }, { "path": "**/*.[lL][iI][bB][rR][aA][rR][yY]-[mM][sS]" }, { "path": "**/*.[iI][sS][oO]" }, { "path": "**/*.[iI][mM][gG]" }, { "path": "**/*.[vV][hH][dD]" }, { "path": "**/*.[vV][hH][dD][xX]" }, { "path": "**/*.[mM][sS][iI][xX]" }, { "path": "**/*.[aA][pP][pP][xX]" }, { "path": "**/*.[pP][sS][mM]1" }, { "path": "**/*.[wW][sS][cC]" }, { "path": "**/*.[sS][cC][tT]" }]
+    },
+    "dialog:default"
+  ]
+}

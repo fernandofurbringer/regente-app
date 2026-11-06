@@ -1,0 +1,9 @@
+{
+  "id": "receita-site-completo",
+  "name": "Site Completo",
+  "description": "Formação da squad Site Completo: o intake vem do brief quando ele já tem as respostas.",
+  "mode": "squad",
+  "squad": "site-completo",
+  "intake": {},
+  "worktree": false
+}

@@ -1,0 +1,7 @@
+=== RUN   TestSoma
+    a_test.go:12: esperado 4, obteve 3
+--- FAIL: TestSoma (0.00s)
+=== RUN   TestOutro
+--- PASS: TestOutro (0.00s)
+FAIL
+FAIL	regente/pkg/a	0.210s

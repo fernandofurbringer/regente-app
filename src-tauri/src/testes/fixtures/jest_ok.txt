@@ -1,0 +1,7 @@
+PASS src/lib/format.test.ts
+PASS src/lib/errors.test.ts
+
+Test Suites: 2 passed, 2 total
+Tests:       20 passed, 20 total
+Snapshots:   0 total
+Time:        1.1 s

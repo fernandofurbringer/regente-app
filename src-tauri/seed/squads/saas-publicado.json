@@ -1,0 +1,46 @@
+{
+  "id": "saas-publicado",
+  "name": "SaaS Publicado",
+  "description": "Um SaaS publicado, com cobrança e revisão de segurança em paralelo.",
+  "intake": [
+    {"q": "Qual SaaS, quem paga e por quê?"},
+    {"q": "Cobrança: Stripe, outra ou depois?"},
+    {"q": "Multi-tenant?"}
+  ],
+  "roster": [
+    {"agent": "auditor-auth", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "auditor-dados", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "auditor-billing", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "code-reviewer", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "backend-architect", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"}
+  ],
+  "phases": [
+    {
+      "name": "App Web",
+      "steps": [
+        "Monte o app como na App Web (plano, build e revisão, com os gates dela)."
+      ],
+      "gate": null
+    },
+    {
+      "name": "Auditoria de segurança",
+      "steps": [
+        "auditor-auth: OWASP API Top 10 (BOLA, BFLA, auth quebrada, rate limit). Cada achado vira F-XXX com prova de exploração.",
+        "auditor-dados: vazamento entre tenants, mass assignment e exposição excessiva.",
+        "auditor-billing: webhook de cobrança na ordem assinatura, parse, idempotência. Replay é rejeitado; evento duplicado credita uma vez.",
+        "code-reviewer: diff crítico."
+      ],
+      "gate": "Veredito de segurança (achado de severidade alta bloqueia o release)"
+    },
+    {
+      "name": "Correções",
+      "steps": [
+        "backend-architect corrige os achados.",
+        "Reauditoria só dos endpoints tocados."
+      ],
+      "gate": "Caminho dourado (cadastro, uso, pagamento) e publicação"
+    }
+  ],
+  "maestroNotes": "A severidade alta bloqueia o release sem exceção: o veredito precisa ser legível para o usuário.",
+  "peakPanes": 12
+}

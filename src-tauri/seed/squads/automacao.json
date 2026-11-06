@@ -1,0 +1,41 @@
+{
+  "id": "automacao",
+  "name": "Automação Agendada",
+  "description": "Uma automação agendada e monitorada: fonte testada, script com cron e alarme, e execuções reais.",
+  "intake": [
+    {"q": "O que automatizar, e com que frequência?"},
+    {"q": "Fonte dos dados: é sua ou autorizada?"},
+    {"q": "Um exemplo exato da saída?"},
+    {"q": "Destino: WhatsApp, planilha ou e-mail?"}
+  ],
+  "roster": [
+    {"agent": "sq-browser", "role": "scout", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "backend-architect", "role": "executor", "cli": "claude", "model": "claude-sonnet-5-5"},
+    {"agent": "sq-qa", "role": "reviewer", "cli": "claude", "model": "claude-sonnet-5-5"}
+  ],
+  "phases": [
+    {
+      "name": "Fontes",
+      "steps": [
+        "sq-browser: um teste cirúrgico por fonte antes de codar, no máximo 3 tentativas. Em falha, para e reporta."
+      ],
+      "gate": "Amostra real de dados e formato de saída"
+    },
+    {
+      "name": "Automação",
+      "steps": [
+        "backend-architect: script, cron, log estruturado e alarme de falha. Os quatro são entregas."
+      ],
+      "gate": "Uma execução real no destino"
+    },
+    {
+      "name": "Testes",
+      "steps": [
+        "sq-qa: 3 execuções no horário real do cron e uma falha induzida (derrubar a fonte de propósito; o alarme tem de disparar)."
+      ],
+      "gate": "Ligar o cron e receber o manual de 5 linhas"
+    }
+  ],
+  "maestroNotes": "Só use dados de fontes próprias ou autorizadas. Nada é agendado antes da execução real aprovada.",
+  "peakPanes": null
+}

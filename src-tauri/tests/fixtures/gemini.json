@@ -1,0 +1,5 @@
+{"sessionId":"g1","projectHash":"abc","messages":[
+  {"id":"1","type":"user","content":"oi"},
+  {"id":"2","type":"gemini","model":"gemini-3-pro","tokens":{"input":1000,"output":200,"cached":400,"thoughts":50,"tool":0,"total":1250}},
+  {"id":"3","type":"gemini","model":"gemini-3-pro","tokens":{"input":2000,"output":100,"cached":1500,"thoughts":0,"tool":0,"total":2100}}
+]}

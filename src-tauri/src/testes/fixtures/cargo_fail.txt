@@ -1,0 +1,29 @@
+   Compiling regente v0.1.0 (D:\pessoal\REA\regente-wt-c\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.12s
+     Running unittests src/lib.rs (target\debug\deps\regente-3f2a.exe)
+
+running 3 tests
+test formato::tests::ok_caso ... ok
+<ESC>[31mtest formato::tests::quebra_linha ... FAILED<ESC>[0m
+test testes::compacto::tests::soma ... FAILED
+
+failures:
+
+---- formato::tests::quebra_linha stdout ----
+thread 'formato::tests::quebra_linha' panicked at src/formato.rs:88:9:
+assertion `left == right` failed
+  left: "a"
+ right: "b"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- testes::compacto::tests::soma stdout ----
+thread 'testes::compacto::tests::soma' panicked at src/testes/compacto.rs:40:5:
+boom
+
+failures:
+    formato::tests::quebra_linha
+    testes::compacto::tests::soma
+
+test result: FAILED. 1 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `--lib`

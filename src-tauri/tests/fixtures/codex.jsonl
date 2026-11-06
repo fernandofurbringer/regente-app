@@ -1,0 +1,4 @@
+{"timestamp":"2026-10-14T10:00:00Z","type":"session_meta","payload":{"id":"codex-sess-1","timestamp":"2026-10-14T10:00:00Z","cwd":"D:\\proj\\site","originator":"codex_cli_rs","cli_version":"0.50.0"}}
+{"timestamp":"2026-10-14T10:00:01Z","type":"turn_context","payload":{"cwd":"D:\\proj\\site","model":"gpt-5.5-codex","effort":"high"}}
+{"timestamp":"2026-10-14T10:00:09Z","type":"event_msg","payload":{"type":"token_count","info":{"total_token_usage":{"input_tokens":12000,"cached_input_tokens":8000,"output_tokens":900,"reasoning_output_tokens":300,"total_tokens":12900}},"rate_limits":{"primary":{"used_percent":12.0,"window_minutes":300,"resets_in_seconds":3600},"secondary":{"used_percent":40.0,"window_minutes":10080,"resets_in_seconds":86400}}}}
+{"timestamp":"2026-10-14T10:00:10Z","type":"event_msg","payload":{"type":"token_count","info":null,"rate_limits":{"primary":{"used_percent":13.0,"window_minutes":300,"resets_in_seconds":3500}}}}

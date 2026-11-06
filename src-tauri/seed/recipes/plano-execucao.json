@@ -1,0 +1,10 @@
+{
+  "id": "plano-execucao",
+  "name": "Plano → Execução",
+  "description": "Um planejador estuda e escreve o plano; você aprova; executores rápidos fazem cada tarefa e o Regente verifica.",
+  "mode": "agentico",
+  "slots": [],
+  "intake": {},
+  "style": "plano",
+  "worktree": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "receita-app-web",
+  "name": "App Web",
+  "description": "Formação da squad App Web: um app web com dados de exemplo.",
+  "mode": "squad",
+  "squad": "app-web",
+  "intake": {},
+  "worktree": false
+}

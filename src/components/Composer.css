@@ -1,0 +1,6 @@
+.composer { display: grid; gap: 6px; padding: 6px 8px; background: var(--bg3); border-top: 1px solid var(--line); position: relative; }
+.composer textarea { width: 100%; resize: vertical; min-height: 64px; font-family: var(--mono); font-size: 12px; padding: 6px; background: var(--bg2); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; }
+.composer-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.composer-files { position: absolute; left: 8px; right: 8px; bottom: calc(100% - 4px); max-height: 46vh; overflow: auto; z-index: 30; display: grid; background: var(--bg3); border: 1px solid var(--line); border-radius: 8px; padding: 4px; box-shadow: 0 8px 24px #0006; }
+.composer-files-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 4px; }
+.composer-files-head input[type="search"] { flex: 1 1 180px; }

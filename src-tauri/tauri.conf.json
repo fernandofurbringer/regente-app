@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Regente",
+  "version": "1.4.0",
+  "identifier": "br.com.regente.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      { "label": "main", "title": "Regente", "width": 1440, "height": 900, "minWidth": 960, "minHeight": 600, "dragDropEnabled": true }
+    ],
+    "security": {
+      "csp": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost data: blob:; media-src 'self' asset: http://asset.localhost blob:; font-src 'self' data:; worker-src 'self' blob:; frame-src http: https:; connect-src 'self' ipc: http://ipc.localhost",
+      "devCsp": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost data: blob:; media-src 'self' asset: http://asset.localhost blob:; font-src 'self' data:; worker-src 'self' blob:; frame-src http: https:; connect-src 'self' ipc: http://ipc.localhost ws://localhost:1420 http://localhost:1420; script-src 'self' 'unsafe-eval' http://localhost:1420",
+      "assetProtocol": { "enable": true, "scope": ["**"] }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDU2MDlFMEU1ODhGQjY2ODUKUldTRlp2dUk1ZUFKVm1YdnRRNHVBb1NtK1NFOVFBSHppQ0hFS3dPUW9USUJhYlFVVTY3QnJqVGYK",
+      "endpoints": []
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "fileAssociations": [
+      { "ext": ["md", "ts", "tsx", "js", "json", "rs", "py", "toml", "yaml", "yml"], "name": "Codigo", "description": "Arquivo de código", "role": "Editor" }
+    ],
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+    "windows": {
+      "nsis": {
+        "installerHooks": "windows/hooks.nsh"
+      }
+    }
+  }
+}
