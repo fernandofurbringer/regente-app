@@ -241,8 +241,12 @@ login da própria CLI (`~/.claude`), só leitura. Rotas alternativas de modelo (
 
 ## Instalação
 
-1. Baixe `Regente_<versão>_x64-setup.exe` e execute (instalador NSIS, por usuário).
-2. Abra o Regente pelo menu Iniciar. A atualização automática (opcional) é configurada em Configurações → Atualizações.
+1. Baixe `Regente_<versão>_x64-setup.exe` da [última release](https://github.com/fernandofurbringer/regente-app/releases/latest)
+   e execute (instalador NSIS, por usuário). O instalador não tem assinatura de código da Microsoft: se o SmartScreen avisar,
+   clique em "Mais informações" e depois em "Executar assim mesmo".
+2. Abra o Regente pelo menu Iniciar.
+3. Atualização automática (opcional): em Configurações → Atualizações → Canal, cole
+   `https://github.com/fernandofurbringer/regente-app/releases/latest/download/latest.json`.
 
 ## Lacunas conhecidas
 
